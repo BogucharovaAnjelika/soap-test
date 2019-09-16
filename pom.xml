@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sabbath</groupId>
+    <artifactId>soap-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+  <!--  <properties>
+        <soapui.test.fail.ignore>false</soapui.test.fail.ignore>
+        <soapui.teamengine.endpoint>[ADD_CONTENT]</soapui.teamengine.endpoint>
+        <soapui.iut>[ADD_CONTENT]</soapui.iut>
+        <soapui.tests.passed>[ADD_CONTENT]</soapui.tests.passed>
+        <soapui.tests.skipped>[ADD_CONTENT]</soapui.tests.skipped>
+        <soapui.tests.failed>[ADD_CONTENT]</soapui.tests.failed>
+    </properties>
+-->
+    <dependencies>
+        <dependency>
+            <groupId>com.jgoodies</groupId>
+            <artifactId>forms</artifactId>
+            <version>1.0.7</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.smartbear.soapui</groupId>
+                    <artifactId>soapui-maven-plugin</artifactId>
+                    <version>5.5.0</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.jgoodies</groupId>
+                            <artifactId>forms</artifactId>
+                            <version>1.0.7</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <projectFile>src/test/resources/soapui/testProject-soapui-project.xml</projectFile>
+                        <settingsFile>src/test/resources/soapui/testProject-soapui-settings.xml</settingsFile>
+                        <outputFolder>${project.build.directory}/soapui</outputFolder>
+                        <junitReport>true</junitReport>
+                        <testFailIgnore>${soapui.test.fail.ignore}</testFailIgnore>
+                        <!--<projectProperties>
+                            <value>teamengine.endpoint=${soapui.teamengine.endpoint}</value>
+                            <value>iut=${soapui.iut}</value>
+                            <value>tests.passed=${soapui.tests.passed}</value>
+                            <value>tests.skipped=${soapui.tests.skipped}</value>
+                            <value>tests.failed=${soapui.tests.failed}</value>
+                        </projectProperties>-->
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>smartbear-sweden-plugin-repository</id>
+            <url>http://www.soapui.org/repository/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
